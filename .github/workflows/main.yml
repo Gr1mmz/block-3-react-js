@@ -94,7 +94,7 @@ jobs:
             const repo = context.repo.repo;
             const owner = context.repo.owner;
             const previewUrl = `https://${owner}.github.io/${repo}/pr-${prNumber}/`;
-            
+
             await github.rest.issues.createComment({
               issue_number: prNumber,
               owner: owner,
