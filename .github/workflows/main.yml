@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Vite CI/CD with PR Preview
 
 on:
   push:
@@ -8,14 +8,16 @@ on:
 
 env:
   NODE_VERSION: 22
+  VITE_BASE_URL: '/'
 
 jobs:
-  lint-and-test:
+  quality-checks:
+    name: Lint and Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -24,19 +26,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESLint
+      - name: ESLint Check
         run: npm run lint:check
 
-      - name: Run Prettier check
+      - name: Prettier Check
         run: npm run format:check
 
   build:
-    needs: lint-and-test
+    needs: quality-checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -45,14 +47,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      - name: Build Project
         run: npm run build
 
-      - name: Upload production build
+      - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: production-build
-          path: build/
+          name: pr-preview-${{ github.event.pull_request.number }}
+          path: dist/
+          retention-days: 1
 
   deploy:
     needs: build
@@ -62,21 +65,22 @@ jobs:
       pages: write
       id-token: write
       pull-requests: write
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: production-build
-          path: build
+          name: pr-preview-${{ github.event.pull_request.number }}
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./build
+          publish_dir: ./dist
           keep_files: true
           destination_dir: pr-${{ github.event.pull_request.number }}
 
@@ -95,5 +99,5 @@ jobs:
               issue_number: prNumber,
               owner: owner,
               repo: repo,
-              body: `🚀 Preview доступен по ссылке: ${previewUrl}`
+              body: `🎉 Preview доступен по ссылке: ${previewUrl}\n\nСсылка будет активна в течение 24 часов после закрытия PR.`
             });
