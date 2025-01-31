@@ -7,10 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint:check": "eslint . --ext js,jsx",
+    "lint:fix": "eslint . --ext js,jsx --fix",
     "format:check": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:fix": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
