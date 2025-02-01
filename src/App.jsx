@@ -1,3 +1,9 @@
-import './App.css';
+import { MainPage } from '@/pages/main-page';
 
-export const App = () => <div>HELLO WORLD</div>;
+import './styles/index.scss';
+
+export const App = () => (
+  <div>
+    <MainPage />
+  </div>
+);

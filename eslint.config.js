@@ -8,7 +8,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginImport from 'eslint-plugin-import';
 
 export default [
-  { ignores: ['dist', '*.config.js'] }, // Игнорируем дополнительные файлы
+  { ignores: ['dist', '*.config.js'] },
 
   // Базовые настройки
   {
@@ -28,22 +28,35 @@ export default [
     },
     settings: {
       react: {
-        version: 'detect', // Автоматическое определение версии React
+        version: 'detect',
+      },
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.json'],
+          moduleDirectory: ['node_modules', 'src/'],
+        },
+        alias: {
+          map: [
+            ['@', './src'],
+            ['@/pages', './src/pages'],
+          ],
+          extensions: ['.js', '.jsx', '.json', '.scss'],
+        },
       },
     },
   },
 
-  // Подключаем плагины
+  // Плагины и правила
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
       import: eslintPluginImport,
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
-  },
-
-  // Правила сортировки импортов
-  {
     rules: {
+      // Сортировка импортов
       'simple-import-sort/imports': [
         'error',
         {
@@ -56,20 +69,19 @@ export default [
         },
       ],
       'simple-import-sort/exports': 'error',
-      'import/first': 'error',
-      // 'import/newline-after-import': ['error', { count: 1 }],
-      'import/no-duplicates': 'error',
-    },
-  },
 
-  // React правила
-  {
-    plugins: {
-      react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
+      // Правила для импортов
+      'import/first': 'error',
+      'import/no-duplicates': 'error',
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: ['^@/.*/index.js'],
+          caseSensitiveStrict: true,
+        },
+      ],
+
+      // React правила
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
@@ -77,29 +89,17 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    },
-  },
 
-  // Базовые JavaScript правила
-  js.configs.recommended,
-
-  // Дополнительные кастомные правила
-  {
-    rules: {
+      // Дополнительные правила
       'no-unused-vars': 'warn',
       'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'jsx-quotes': ['error', 'prefer-double'],
       'arrow-body-style': ['warn', 'as-needed'],
       'prefer-const': 'error',
       'no-duplicate-imports': 'error',
-      'import/no-unresolved': 'error',
-      'import/named': 'error',
-      'import/namespace': 'error',
-      'import/default': 'error',
-      'import/export': 'error',
     },
   },
 
-  // Интеграция с Prettier (должен быть последним)
+  js.configs.recommended,
   prettierConfig,
 ];
