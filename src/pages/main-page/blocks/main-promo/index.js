@@ -1,1 +1,1 @@
-export { MainPromo } from './main-promo.jsx';
+export { MainPromo } from './main-promo';

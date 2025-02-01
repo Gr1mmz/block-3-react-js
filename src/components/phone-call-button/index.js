@@ -1,1 +1,1 @@
-export { PhoneCallButton } from './phone-call-button.jsx';
+export { PhoneCallButton } from './phone-call-button';
