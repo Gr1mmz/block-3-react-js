@@ -1,4 +1,4 @@
-# block-2-react-js
+# block-3-react-js
 
 ## Блок 3. Базовый React
 
