@@ -9,7 +9,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@/components': path.resolve(__dirname, './src/components'),
     },
+    mainFields: ['module', 'main', 'browser'],
+    extensions: ['.jsx', '.js', '.json'],
   },
   build: {
     assetsInclude: ['**/*.woff', '**/*.woff2'],

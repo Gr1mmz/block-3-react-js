@@ -32,15 +32,15 @@ export default [
       },
       'import/resolver': {
         node: {
-          extensions: ['.js', '.jsx', '.json'],
+          extensions: ['.jsx', '.js', '.json'],
           moduleDirectory: ['node_modules', 'src/'],
         },
         alias: {
           map: [
             ['@', './src'],
-            ['@/pages', './src/pages'],
+            ['@/components', './src/components'],
           ],
-          extensions: ['.js', '.jsx', '.json', '.scss'],
+          extensions: ['.jsx', '.js', '.json'],
         },
       },
     },
@@ -73,11 +73,19 @@ export default [
       // Правила для импортов
       'import/first': 'error',
       'import/no-duplicates': 'error',
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'never',
+          jsx: 'never',
+        },
+      ],
       'import/no-unresolved': [
         'error',
         {
-          ignore: ['^@/.*/index.js'],
-          caseSensitiveStrict: true,
+          ignore: ['^@/'],
+          caseSensitive: false,
         },
       ],
 

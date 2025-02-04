@@ -2,13 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"]
     },
-    "module": "ESNext",
     "moduleResolution": "node",
-    "allowJs": true,
-    "checkJs": true,
-    "resolveJsonModule": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": false
   },
   "exclude": ["node_modules", "dist"]
 }
