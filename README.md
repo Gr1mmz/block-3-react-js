@@ -10,7 +10,7 @@
 
 1. Нажимаем кнопку `Use this template`  
    ![image](https://github.com/user-attachments/assets/38f7ddfa-5324-45a1-9bf4-5396af08c8d1)
-2. Выбираем `Create a new repository`
+2. Выбираем `Create a new repository`  
    ![image](https://github.com/user-attachments/assets/362fcc63-0ea4-458b-9332-5dbe0981e177)
 3. Вписываем название репозитория (может быть любым на ваше усмотрение)  
    ![image](https://github.com/user-attachments/assets/8ea1eb51-c53b-4ad8-b037-fbca63947750)
