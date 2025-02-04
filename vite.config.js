@@ -7,10 +7,8 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? './' : '/',
   plugins: [react()],
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@/pages': path.resolve(__dirname, './src/pages'),
     },
   },
   build: {

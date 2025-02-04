@@ -1,1 +1,1 @@
-export { Container } from './container.jsx';
+export { Container } from './container';
