@@ -32,6 +32,9 @@ jobs:
       - name: Prettier Check
         run: npm run format:check
 
+      - name: Type Check
+        run: npm run type-check
+
   build:
     needs: quality-checks
     runs-on: ubuntu-latest
