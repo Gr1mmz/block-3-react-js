@@ -1,8 +1,16 @@
+import { useContext } from 'react';
+
 import { Container } from '@/components/container';
+
+import { MainPageContext } from '../../providers/main-page-context';
 
 import styles from './main-teachers.module.scss';
 
 export const MainTeachers = () => {
+  const teachers = useContext(MainPageContext);
+
+  console.log(teachers);
+
   return (
     <section className={styles.teachers}>
       <Container>

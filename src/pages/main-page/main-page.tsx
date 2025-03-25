@@ -1,26 +1,23 @@
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
+import { useEffect, useState } from 'react';
 
-import { MainAbout } from './components/main-about';
-import { MainBenefits } from './components/main-benefits';
-import { MainForm } from './components/main-form';
-import { MainPackages } from './components/main-packages';
-import { MainPromo } from './components/main-promo';
-import { MainTeachers } from './components/main-teachers';
+import { getTeachersList } from '@/api/mock-api';
+import type { TeacherListType } from '@/types/teacher';
+
+import { MainPageContext } from './providers/main-page-context';
+import { MainPageView } from './main-page-view';
 
 export const MainPage = () => {
+  const [teachersList, setTeachersList] = useState<TeacherListType[] | []>([]);
+
+  useEffect(() => {
+    getTeachersList()
+      .then((data) => setTeachersList(data))
+      .catch(console.error);
+  }, []);
+
   return (
-    <>
-      <Header />
-      <main>
-        <MainPromo />
-        <MainAbout />
-        <MainBenefits />
-        <MainTeachers />
-        <MainPackages />
-        <MainForm />
-      </main>
-      <Footer />
-    </>
+    <MainPageContext.Provider value={{ teachersList }}>
+      <MainPageView />
+    </MainPageContext.Provider>
   );
 };
