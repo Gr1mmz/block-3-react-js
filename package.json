@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
-    "lint": "eslint src",
+    "lint:check": "eslint src",
     "lint:fix": "eslint src --fix",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write ."
