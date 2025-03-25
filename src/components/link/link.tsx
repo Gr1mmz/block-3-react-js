@@ -1,6 +1,13 @@
+import type { PropsWithChildren } from 'react';
+
 import styles from './link.module.scss';
 
-export const Link = ({ href, children, additionalClassname }) => {
+interface LinkProps extends PropsWithChildren {
+  href: string;
+  additionalClassname?: string;
+}
+
+export const Link = ({ href, children, additionalClassname }: LinkProps) => {
   const createLinkClassname = () => {
     const baseClassname = `${styles.link}`;
 
