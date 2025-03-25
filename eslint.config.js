@@ -6,13 +6,15 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import prettierConfig from 'eslint-config-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginImport from 'eslint-plugin-import';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
   { ignores: ['dist', '*.config.js'] },
 
   // Базовые настройки
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['src/**/*.js', 'src/**/*.jsx', 'src/**/*.ts', 'src/**/*.tsx'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -20,10 +22,9 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
+      parser: tsParser,
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
+        ecmaFeatures: { jsx: true },
       },
     },
     settings: {
@@ -54,6 +55,7 @@ export default [
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      '@typescript-eslint': tsPlugin,
     },
     rules: {
       // Сортировка импортов
@@ -105,6 +107,12 @@ export default [
       'arrow-body-style': 'off',
       'prefer-const': 'error',
       'no-duplicate-imports': 'error',
+
+      // TS правила
+      ...tsPlugin.configs.recommendedTypeChecked,
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
 
