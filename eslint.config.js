@@ -33,7 +33,7 @@ export default [
       },
       'import/resolver': {
         node: {
-          extensions: ['.jsx', '.js', '.json'],
+          extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
           moduleDirectory: ['node_modules', 'src/'],
         },
         alias: {
@@ -41,7 +41,7 @@ export default [
             ['@', './src'],
             ['@/components', './src/components'],
           ],
-          extensions: ['.jsx', '.js', '.json'],
+          extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
         },
         // typescript: {
         //   alwaysTryTypes: true,
