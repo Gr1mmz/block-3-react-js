@@ -1,6 +1,12 @@
+import type { PropsWithChildren } from 'react';
+
 import styles from './container.module.scss';
 
-export const Container = ({ children, isWide }) => {
+interface ContainerProps extends PropsWithChildren {
+  isWide?: boolean;
+}
+
+export const Container = ({ children, isWide }: ContainerProps) => {
   const createContainerClassname = () => {
     const baseClassname = styles.container;
 

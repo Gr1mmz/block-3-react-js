@@ -1,9 +1,10 @@
 import { Container } from '@/components/container';
+import type { BenefitItemsType } from '@/types/benefits';
 
 import styles from './main-benefits.module.scss';
 
 // eslint-disable-next-line no-unused-vars
-const benefitItems = [
+const benefitItems: BenefitItemsType = [
   {
     id: 1,
     subtitle: 'Удостоверение',

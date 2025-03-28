@@ -1,10 +1,11 @@
 import { Container } from '@/components/container';
+import type { PackageItemsType } from '@/types/packages';
 
 import { PackageItem } from './components/package-item';
 
 import styles from './main-packages.module.scss';
 
-const packageItems = [
+const packageItems: PackageItemsType = [
   {
     id: 1,
     title: 'PRO',

@@ -1,6 +1,12 @@
+import type { PackageItemType } from '@/types/packages';
+
 import styles from './package-item.module.scss';
 
-export const PackageItem = ({ package: { id, title, price, description } }) => {
+interface PackageItemProps {
+  package: PackageItemType;
+}
+
+export const PackageItem = ({ package: { id, title, price, description } }: PackageItemProps) => {
   return (
     <div key={id} className={styles.packageItem}>
       <h3 className={styles.packageTitle}>{title}</h3>

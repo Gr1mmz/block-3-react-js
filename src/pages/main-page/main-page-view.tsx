@@ -8,7 +8,7 @@ import { MainPackages } from './components/main-packages';
 import { MainPromo } from './components/main-promo';
 import { MainTeachers } from './components/main-teachers';
 
-export const MainPage = () => {
+export const MainPageView = () => {
   return (
     <>
       <Header />
