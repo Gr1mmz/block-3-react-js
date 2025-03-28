@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 
 import { Container } from '@/components/container';
-
-import { MainPageContext } from '../../providers/main-page-context';
+import { MainPageContext } from '@/store/main-page';
 
 import styles from './main-teachers.module.scss';
 

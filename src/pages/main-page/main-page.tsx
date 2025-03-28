@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import { getTeachersList } from '@/api/mock-api';
+import {MainPageContent} from "@/features/main-page-content";
+import { MainPageContext } from '@/store/main-page';
 import type { TeacherListType } from '@/types/teacher';
-
-import { MainPageContext } from './providers/main-page-context';
-import { MainPageView } from './main-page-view';
 
 export const MainPage = () => {
   const [teachersList, setTeachersList] = useState<TeacherListType[] | []>([]);
@@ -17,7 +16,7 @@ export const MainPage = () => {
 
   return (
     <MainPageContext.Provider value={{ teachersList }}>
-      <MainPageView />
+      <MainPageContent />
     </MainPageContext.Provider>
   );
 };

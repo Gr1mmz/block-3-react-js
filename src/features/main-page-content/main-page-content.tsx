@@ -1,5 +1,7 @@
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
+import React from 'react';
+
+import {Footer} from "@/components/footer";
+import {Header} from "@/components/header";
 
 import { MainAbout } from './components/main-about';
 import { MainBenefits } from './components/main-benefits';
@@ -8,7 +10,7 @@ import { MainPackages } from './components/main-packages';
 import { MainPromo } from './components/main-promo';
 import { MainTeachers } from './components/main-teachers';
 
-export const MainPageView = () => {
+export const MainPageContent = () => {
   return (
     <>
       <Header />
