@@ -43,10 +43,6 @@ export default [
           ],
           extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
         },
-        // typescript: {
-        //   alwaysTryTypes: true,
-        //   project: './tsconfig.json'
-        // }
       },
     },
   },
@@ -79,23 +75,6 @@ export default [
       // Правила для импортов
       'import/first': 'error',
       'import/no-duplicates': 'error',
-      // 'import/extensions': [
-      //   'error',
-      //   'ignorePackages',
-      //   {
-      //     js: 'never',
-      //     jsx: 'never',
-      //     ts: 'never',
-      //     tsx: 'never',
-      //   },
-      // ],
-      // 'import/no-unresolved': [
-      //   'error',
-      //   {
-      //     ignore: ['^@/'],
-      //     caseSensitive: false,
-      //   },
-      // ],
 
       // React правила
       ...react.configs.recommended.rules,
