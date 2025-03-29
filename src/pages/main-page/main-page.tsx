@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { getTeachersList } from '@/api/mock-api';
-import { MainPageContent } from '@/features/main-page-content';
+import { MainPageContent } from '@/modules/main-page-content';
 import { MainPageContext } from '@/store/main-page';
 import type { TeacherListType } from '@/types/teacher';
 
