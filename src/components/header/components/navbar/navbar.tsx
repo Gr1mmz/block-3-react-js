@@ -6,7 +6,7 @@ const navbarItems = [
   {
     id: 1,
     title: 'О школе',
-    href: '#status',
+    href: '#about',
   },
   {
     id: 2,
