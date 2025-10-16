@@ -1,24 +1,23 @@
 @use '@/styles/variables.scss' as *;
 
 .packageItem {
+  flex-basis: 360px;
+  padding: 40px;
+  border: 1px solid $controls-bg-tertiary;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
-  flex-basis: 360px;
-  border: 2px solid $bg-color-quaternary;
-  border-radius: 20px;
-  padding: 40px;
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    border 0.2s ease,
-    color 0.2s ease;
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
-    background-color: $bg-color-tertiary;
-    border-color: $bg-color-tertiary;
+    background-color: $bg-color-secondary;
     color: $text-color-secondary;
-    transform: scale(1.1);
+    transform: scale(1.03);
 
     .packageTitle {
       &::before,
@@ -29,75 +28,57 @@
   }
 
   .packageTitle {
-    font-size: 30px;
-    font-weight: 600;
-    align-self: center;
-    width: max-content;
-    text-transform: uppercase;
     position: relative;
+    font-weight: 600;
+    font-size: 30px;
 
     &::before,
     &::after {
+      position: absolute;
       content: '';
       top: 50%;
       transform: translateY(-50%);
-      transition: background-color 0.2s ease;
-      position: absolute;
+      height: 4px;
       width: 19px;
-      height: 3px;
-      background-color: $bg-color-tertiary;
+      background-color: $text-color-primary;
+      transition: background-color 0.3s ease;
     }
 
     &::before {
-      left: -33px;
+      left: -30px;
     }
     &::after {
-      right: -33px;
+      right: -30px;
     }
-  }
-
-  .packageText {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 33px;
   }
 
   .packagePrice {
-    font-size: 50px;
+    margin-top: 83px;
     font-weight: 600;
+    font-size: 50px;
   }
 
   .packageDescription {
-    font-size: 18px;
     margin-top: 20px;
+    font-size: 18px;
+    margin-bottom: 51px;
   }
 }
 
 @media (max-width: 768px) {
   .packageItem {
     padding: 40px 20px;
-
-    &:hover {
-      margin: 0 10px;
-    }
-
-    .packageText {
-      margin-top: 40px;
-    }
+    flex-basis: 300px;
 
     .packagePrice {
       font-size: 40px;
+      margin-top: 40px;
     }
 
     .packageDescription {
       font-size: 16px;
-    }
-
-    .button {
-      font-size: 16px;
-      margin-top: 25px;
+      max-width: 250px;
+      margin-bottom: 40px;
     }
   }
 }
