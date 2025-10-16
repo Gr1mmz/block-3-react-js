@@ -4,40 +4,30 @@
   position: relative;
   overflow: hidden;
   max-height: 972px;
-  padding: 0;
   height: calc(100dvh - 108px);
-  background-color: $bg-color-tertiary;
+  background-color: $bg-color-secondary;
   color: $text-color-secondary;
 
   .wrapper {
+    margin-top: 116px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-start;
-    height: 100%;
 
-    .text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 236px;
+    .title {
+      font-size: 70px;
+      font-weight: 600;
+    }
 
-      .title {
-        font-size: 70px;
-        font-weight: 600;
-      }
-
-      .subtitle {
-        font-size: 20px;
-        margin-top: 18px;
-        max-width: 460px;
-      }
+    .subtitle {
+      margin-top: 20px;
+      max-width: 478px;
     }
 
     .img {
       position: absolute;
       left: 48%;
-      top: 54px;
+      top: 55px;
       width: 783px;
       height: auto;
     }
@@ -46,53 +36,40 @@
 
 @media (max-width: 1024px) {
   .promo {
-    max-height: 830px;
+    height: calc(100dvh - 66px);
+    padding: 30px 0 40px;
 
     .wrapper {
-      align-items: center;
-      text-align: center;
-      padding: 30px 0 35px;
-
-      .text {
-        align-items: center;
-        margin-top: 0;
-        height: 100%;
-
-        .title {
-          text-align: center;
-          font-size: 48px;
-        }
-      }
-
-      .img {
-        left: 50%;
-        transform: translateX(-50%);
-        top: unset;
-        bottom: 50px;
-        width: 450px;
-      }
+      margin-top: 80px;
     }
   }
 }
 
 @media (max-width: 768px) {
   .promo {
-    max-height: calc(100vw * 1.1);
-    min-height: 650px;
+    height: 553px;
 
     .wrapper {
-      .text {
-        .title {
-          font-size: 30px;
-        }
+      align-items: center;
+      margin-top: 0;
+      height: 100%;
 
-        .subtitle {
-          font-size: 16px;
-        }
+      .title {
+        font-size: 30px;
+      }
+
+      .subtitle {
+        text-align: center;
+        max-width: 300px;
+        margin-top: 10px;
       }
 
       .img {
-        width: 380px;
+        width: 273px;
+        left: 50%;
+        top: unset;
+        bottom: 40px;
+        transform: translateX(-50%);
       }
     }
   }

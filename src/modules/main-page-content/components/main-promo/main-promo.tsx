@@ -8,11 +8,9 @@ export const MainPromo = () => {
     <section className={styles.promo}>
       <Container>
         <div className={styles.wrapper}>
-          <div className={styles.text}>
-            <h1 className={styles.title}>ROBO SCHOOL</h1>
-            <div className={styles.subtitle}>
-              Курсы повышения квалификации по робототехнике для педагогов начальной школы
-            </div>
+          <h1 className={styles.title}>ROBO SCHOOL</h1>
+          <div className={styles.subtitle}>
+            Курсы повышения квалификации по робототехнике для педагогов начальной школы
           </div>
           <img className={styles.img} src={promoGirlImg} alt="promo" />
         </div>
